@@ -6,7 +6,7 @@ import pickle
 from model import load_data, train_random_forest
 
 
-
+model2= joblib.load("model.pkl")
 # # Load data
 # df = load_data()
 
@@ -42,5 +42,5 @@ for feature in feature_names:
 if st.button("Predict Diagnosis"):
     input_array = np.array(user_input).reshape(1, -1)
     input_scaled = scaler.transform(input_array)
-    prediction = model.predict(input_scaled)
+    prediction = model2.predict(input_scaled)
     st.subheader(f"Prediction: {prediction[0]}")
